@@ -6,8 +6,8 @@ const Home: NextPage = () => {
   return (
     <div className="">
       <Head>
-        <title>SFU.NET</title>
-        <link rel="icon" href="/sfunet.ico" />
+        <title>Instagram</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header />
