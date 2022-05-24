@@ -6,6 +6,8 @@ module.exports = {
       'links.papareact.com',
       'localhost',
       'avatars.githubusercontent.com',
+      'https://upload.wikimedia.org',
+      'https://cdn.fakercloud.com',
     ],
   },
 }
