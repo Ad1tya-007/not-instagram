@@ -11,7 +11,7 @@ import { HomeIcon } from '@heroicons/react/solid'
 
 export default function Header() {
   return (
-    <div className="bg-gray-100">
+    <div className="border-button-1 sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-5 xl:mt-auto">
         <div className="flex max-w-6xl justify-between">
           <div className=" relative mt-3 h-10 w-10 flex-shrink-0 cursor-pointer items-center ">
@@ -40,7 +40,7 @@ export default function Header() {
             <MenuIcon className="menu-button" />
             <div className="nav-button relative">
               <PaperAirplaneIcon className="nav-button rotate-45" />
-              <div className="-bottom-0.1 absolute -right-0.5 flex w-5 animate-pulse items-center justify-center rounded-full bg-red-500 text-xs text-white">
+              <div className="absolute -right-0.5 flex h-5 w-5 animate-pulse items-center justify-center rounded-full bg-red-500 text-xs text-white">
                 3
               </div>
             </div>
