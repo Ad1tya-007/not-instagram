@@ -9,6 +9,7 @@ import {
   MenuIcon,
   ChatIcon,
   BookmarkIcon,
+  EmojiHappyIcon,
 } from '@heroicons/react/outline'
 
 import { HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
@@ -40,6 +41,19 @@ export default function Post({ id, username, userImg, postImg, caption }) {
         </div>
         <BookmarkIcon className="transform-200 east-out h-10 cursor-pointer transition-all hover:scale-125" />
       </div>
+      <p className="truncate p-5">
+        <span className="mr-1 font-bold">{username} </span>
+        {caption}
+      </p>
+      <form className="flex items-center p-4">
+        <EmojiHappyIcon className="transform-all h-7 transition ease-out hover:scale-125" />
+        <input
+          type="text"
+          placeholder="Add a comment"
+          className="flex-1 border-none outline-none focus:ring-0"
+        />
+        <button className="font-semibold text-blue-400">Post</button>
+      </form>
     </div>
   )
 }

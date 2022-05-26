@@ -1,31 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Post from './Post'
-
-const posts = [
-  {
-    id: 1,
-    username: 'Adi',
-    userImg: 'https://avatars.githubusercontent.com/u/50322978?v=4',
-    postImg: 'https://avatars.githubusercontent.com/u/50322978?v=4',
-    caption: 'This is awesome',
-  },
-  {
-    id: 2,
-    username: 'Adi',
-    userImg: 'https://avatars.githubusercontent.com/u/50322978?v=4',
-    postImg: 'https://avatars.githubusercontent.com/u/50322978?v=4',
-    caption: 'This is awesome',
-  },
-  {
-    id: 3,
-    username: 'Adi',
-    userImg: 'https://avatars.githubusercontent.com/u/50322978?v=4',
-    postImg: 'https://avatars.githubusercontent.com/u/50322978?v=4',
-    caption: 'This is awesome',
-  },
-]
+import faker from 'faker'
 
 export default function Posts() {
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    const posts = [...Array(20)].map((_, i) => ({
+      id: i,
+      username: faker.internet.userName(),
+      userImg: faker.image.image(),
+      postImg: faker.image.image(),
+      caption: 'This is awesome',
+    }))
+
+    setPosts(posts)
+  }, [])
+
   return (
     <div>
       {posts.map((post) => (
