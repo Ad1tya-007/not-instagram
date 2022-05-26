@@ -10,7 +10,7 @@ export default function Feed() {
         <Stories />
         <Posts />
       </section>
-      <section>
+      <section className="">
         <MiniProfile />
         <Suggestions />
       </section>
