@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-button {
+    @apply hidden h-10 cursor-pointer duration-150 ease-out hover:scale-125 md:inline-flex;
+  }
+  .menu-button {
+    @apply h-10 cursor-pointer md:hidden;
+  }
+}

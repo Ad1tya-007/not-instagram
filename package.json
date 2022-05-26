@@ -1,21 +1,57 @@
 {
-  "dependencies": {
-    "expo": "^44.0.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-native": "0.64.3",
-    "react-native-web": "0.17.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.9"
-  },
+  "private": true,
   "scripts": {
-    "start": "expo start",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "app": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
+  "dependencies": {
+    "@heroicons/react": "^1.0.6",
+    "@tailwindcss/forms": "^0.5.2",
+    "@types/react-native": "~0.67.6",
+    "expo": "^45.0.4",
+    "expo-cli": "^4.3.0",
+    "faker": "^5.5.3",
+    "firebase": "^9.8.1",
+    "install": "^0.13.0",
+    "ios": "^0.0.1",
+    "metro-core": "^0.71.0",
+    "next": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwind-scrollbar-hide": "^1.1.7"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.0.1",
+    "@types/node": "^17.0.4",
+    "@types/react": "17.0.38",
+    "autoprefixer": "^10.4.0",
+    "metro-config": "^0.71.0",
+    "metro-react-native-babel-preset": "^0.71.0",
+    "postcss": "^8.4.5",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.1",
+    "tailwindcss": "^3.0.7",
+    "tslib": "^2.4.0",
+    "typescript": "4.5.4"
+  },
+  "name": "not-instagram",
+  "description": "This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).",
   "version": "1.0.0",
-  "private": true,
-  "name": "not-instagram"
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ad1tya-007/not-instagram.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ad1tya-007/not-instagram/issues"
+  },
+  "homepage": "https://github.com/Ad1tya-007/not-instagram#readme"
 }
