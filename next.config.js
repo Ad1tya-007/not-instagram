@@ -8,6 +8,7 @@ module.exports = {
       'avatars.githubusercontent.com',
       'https://upload.wikimedia.org',
       'https://cdn.fakercloud.com',
+      'http://placeimg.com',
     ],
   },
 }
