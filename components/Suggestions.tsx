@@ -32,7 +32,7 @@ export default function Suggestions() {
             alt=""
           />
           <div className="ml-4 flex-1">
-            <h2 className="">{profile.username}</h2>
+            <h2 className="hover:underline">{profile.username}</h2>
             <h3 className="text-xs">Works at {profile.company}</h3>
           </div>
           <button className="text-xs text-blue-400">Follow</button>

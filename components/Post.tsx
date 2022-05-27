@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   DotsHorizontalIcon,
   SearchIcon,
@@ -23,7 +22,7 @@ export default function Post({ id, username, userImg, postImg, caption }) {
           className="mr-3 h-12 w-12 rounded-full border object-contain p-1"
           alt=""
         />
-        <p className="flex-1 font-bold">{username}</p>
+        <p className="flex-1 font-bold hover:underline">{username}</p>
         <DotsHorizontalIcon className="h-5" />
       </div>
       <div>
