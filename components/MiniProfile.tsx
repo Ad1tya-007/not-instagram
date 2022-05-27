@@ -8,7 +8,7 @@ export default function MiniProfile() {
       />
       <div className="flex-1 p-3">
         <h2 className="font-bold">Adi</h2>
-        <h3 className="text-sm">Welcome to Instagram!</h3>
+        <h3 className="text-sm">Welcome to Not-Instagram!</h3>
       </div>
       <button className="font-semibold text-blue-400">Sign Out</button>
     </div>
