@@ -17,7 +17,7 @@ export default function Suggestions() {
 
   return (
     <div className="ml-10 rounded-sm border border-gray-200 bg-white p-5">
-      <div className="mb-3 flex justify-between">
+      <div className="mt-1 mb-3 flex justify-between">
         <p className="font-semibold text-gray-400">Suggestions</p>
         <button className="text-gray-400">See All</button>
       </div>
