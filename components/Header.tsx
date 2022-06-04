@@ -8,8 +8,13 @@ import {
   MenuIcon,
 } from '@heroicons/react/outline'
 import { HomeIcon } from '@heroicons/react/solid'
+import { useSession } from 'next-auth/react'
 
 export default function Header() {
+  const { data: session } = useSession()
+
+  console.log(session)
+
   return (
     <div className="border-button-1 sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-5 xl:mt-auto">
