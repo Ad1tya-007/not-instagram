@@ -1,7 +1,0 @@
-<div className="relative hidden h-24 w-24 cursor-pointer lg:inline-grid">
-            <Image
-              src="https://links.papareact.com/ocw"
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
