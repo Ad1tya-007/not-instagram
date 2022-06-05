@@ -8,10 +8,11 @@ import {
   MenuIcon,
 } from '@heroicons/react/outline'
 import { HomeIcon } from '@heroicons/react/solid'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 
 export default function Header() {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
 
   console.log(session)
 
@@ -43,21 +44,29 @@ export default function Header() {
           <div className="flex items-center justify-end space-x-4">
             <HomeIcon className="nav-button" />
             <MenuIcon className="menu-button" />
-            <div className="nav-button relative">
-              <PaperAirplaneIcon className="nav-button rotate-45" />
-              <div className="absolute -right-0.5 flex h-5 w-5 animate-pulse items-center justify-center rounded-full bg-red-500 text-xs text-white">
-                3
-              </div>
-            </div>
 
-            <PlusCircleIcon className="nav-button" />
-            <UserGroupIcon className="nav-button" />
-            <HeartIcon className="nav-button" />
-            <img
-              src="https://avatars.githubusercontent.com/u/50322978?v=4"
-              alt="profile-pic"
-              className="h-10 rounded-full"
-            />
+            {session ? (
+              <>
+                <div className="nav-button relative">
+                  <PaperAirplaneIcon className="nav-button rotate-45" />
+                  <div className="absolute -right-0.5 flex h-5 w-5 animate-pulse items-center justify-center rounded-full bg-red-500 text-xs text-white">
+                    3
+                  </div>
+                </div>
+
+                <PlusCircleIcon className="nav-button" />
+                <UserGroupIcon className="nav-button" />
+                <HeartIcon className="nav-button" />
+                <img
+                  onClick={signOut}
+                  src={session?.user?.image}
+                  alt="profile-pic"
+                  className="h-10 rounded-full"
+                />
+              </>
+            ) : (
+              <button onClick={signIn}>SignIn</button>
+            )}
           </div>
         </div>
       </div>
