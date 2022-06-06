@@ -10,9 +10,11 @@ import {
 import { HomeIcon } from '@heroicons/react/solid'
 import { signOut, useSession } from 'next-auth/react'
 import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 export default function Header() {
   const { data: session, status } = useSession()
+  const router = useRouter()
 
   return (
     <div className="border-button-1 sticky top-0 z-50 bg-white shadow-sm">
@@ -40,10 +42,7 @@ export default function Header() {
           </div>
 
           <div className="flex items-center justify-end space-x-4">
-            <HomeIcon
-              onClick={() => window.location.replace('/')}
-              className="nav-button"
-            />
+            <HomeIcon onClick={() => router.push('/')} className="nav-button" />
             <MenuIcon className="menu-button" />
 
             {session ? (
