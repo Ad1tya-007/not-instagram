@@ -42,7 +42,10 @@ export default function Header() {
           </div>
 
           <div className="flex items-center justify-end space-x-4">
-            <HomeIcon className="nav-button" />
+            <HomeIcon
+              onClick={() => window.location.replace('/')}
+              className="nav-button"
+            />
             <MenuIcon className="menu-button" />
 
             {session ? (
