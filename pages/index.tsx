@@ -1,11 +1,18 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header'
-import Feeds from '../components/Feed'
+import Feed from '../components/Feed'
+import { useSession } from 'next-auth/react'
 
 const Home: NextPage = () => {
+  const { data: session, status } = useSession()
+
   return (
-    <div className="h-screen overflow-y-scroll bg-gray-50 scrollbar-hide">
+    <div
+      className={`h-screen overflow-y-scroll bg-gray-50 scrollbar-hide ${
+        !session && 'bg-red-50'
+      }`}
+    >
       <Head>
         <title>Instagram</title>
         <link
@@ -14,8 +21,9 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <Header />
-      <Feeds />
+      {session && <Header />}
+
+      <Feed />
     </div>
   )
 }
