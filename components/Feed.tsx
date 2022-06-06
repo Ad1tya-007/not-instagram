@@ -28,7 +28,7 @@ export default function Feed() {
         </section>
       )}
       {!session && (
-        <section className="col-span-2 ">
+        <section className="col-span-2">
           <Starter />
         </section>
       )}
