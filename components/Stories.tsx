@@ -20,13 +20,19 @@ export default function Stories() {
 
   return (
     <div className="mt-2 flex space-x-6 overflow-x-scroll rounded-sm border-gray-200 p-6 scrollbar-hide">
-      <div>
+      <div className="transition ease-out hover:scale-110">
         <Story img={session?.user?.image} username={session?.user?.username} />
-        <PlusCircleIcon className="absolute -mt-9 ml-10 h-5 w-5 text-blue-500" />
+        <PlusCircleIcon className="border-1 -mt-9 ml-10 h-5 w-5 text-blue-700" />
       </div>
 
       {suggestions.map((profile) => (
-        <Story key={profile.id} img={profile.img} username={profile.username} />
+        <div className="transition ease-out hover:scale-110">
+          <Story
+            key={profile.id}
+            img={profile.img}
+            username={profile.username}
+          />
+        </div>
       ))}
     </div>
   )
