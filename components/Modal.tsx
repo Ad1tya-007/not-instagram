@@ -52,6 +52,7 @@ export default function Modal() {
             >
               <div>
                 <div className="mt-5 sm:mt-6">
+                  <p className="p-5 text-center">Post an Image</p>
                   <button
                     type="button"
                     //disabled={!selectedFile}
