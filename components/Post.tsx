@@ -33,7 +33,7 @@ export default function Post({ id, username, userImg, image, caption }) {
   const [comment, setComment] = useState('')
   const [comments, setComments] = useState([])
   const [likes, setLikes] = useState([])
-  const [like, setLike] = useState(false)
+  const [hasLike, setHasLike] = useState(false)
   const sendComment = async (e) => {
     e.preventDefault()
 
@@ -46,7 +46,6 @@ export default function Post({ id, username, userImg, image, caption }) {
       timestamp: serverTimestamp(),
     })
   }
-
   useEffect(
     () =>
       onSnapshot(
@@ -60,12 +59,13 @@ export default function Post({ id, username, userImg, image, caption }) {
   )
 
   const likePost = async () => {
-    if (like) {
-      await deleteDoc(doc(db, 'posts', id, 'likes', session.user.uid))
+    if (hasLike) {
+      setHasLike(false)
+      await deleteDoc(doc(db, 'posts', id, 'likes', session.user.uuid))
     } else {
-      await addDoc(collection(db, 'posts', id, 'likes'), {
+      setHasLike(true)
+      await setDoc(doc(db, 'posts', id, 'likes', session.user.uuid), {
         username: session.user.username,
-        id: session.user.uid,
       })
     }
   }
@@ -77,10 +77,11 @@ export default function Post({ id, username, userImg, image, caption }) {
       ),
     [db, id]
   )
-
   useEffect(
     () =>
-      setLike(likes.findIndex(({ id }) => id === session?.user?.uid) !== -1),
+      setHasLike(
+        likes.findIndex((like) => like.id === session?.user?.uuid) !== -1
+      ),
     [likes]
   )
 
@@ -104,7 +105,7 @@ export default function Post({ id, username, userImg, image, caption }) {
       </div>
       <div className="flex justify-between px-4 pt-4">
         <div className="flex items-center space-x-3">
-          {like ? (
+          {hasLike ? (
             <HeartSolidIcon
               onClick={likePost}
               className="transform-200 east-out h-10 cursor-pointer text-red-500 transition-all hover:scale-125"
