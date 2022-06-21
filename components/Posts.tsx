@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Post from './Post'
-import { db } from '../firebase'
+import { db } from '../firebase-setup/firebase'
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 
 export default function Posts() {

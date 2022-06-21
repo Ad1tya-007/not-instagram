@@ -22,7 +22,7 @@ import {
   deleteDoc,
 } from '@firebase/firestore'
 
-import { db } from '../firebase'
+import { db } from '../firebase-setup/firebase'
 import Moment from 'react-moment'
 import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modalAtom'
@@ -123,7 +123,10 @@ export default function Post({ id, username, userImg, image, caption }) {
         <BookmarkIcon className="transform-200 east-out h-10 cursor-pointer transition-all hover:scale-125" />
       </div>
       <p className="truncate p-5">
-        <span className="mr-1 font-bold">{username} </span>
+        {likes.length > 0 && (
+          <p className="mb-1 font-bold">{likes.length} likes</p>
+        )}
+        <span className="mr-1 font-bold">{username}</span>
         {caption}
       </p>
 

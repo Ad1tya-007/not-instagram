@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modalAtom'
 import { Dialog, Transition } from '@headlessui/react'
 import { CameraIcon } from '@heroicons/react/outline'
-import { db, storage } from '../firebase.js'
+import { db, storage } from '../firebase-setup/firebase.js'
 import {
   addDoc,
   collection,
