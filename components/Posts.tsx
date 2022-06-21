@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import Post from './Post'
-import faker from 'faker'
+import { db } from '../firebase'
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 
 export default function Posts() {
   const [posts, setPosts] = useState([])
 
-  useEffect(() => {
-    const posts = [...Array(20)].map((_, i) => ({
-      id: i,
-      username: faker.internet.userName(),
-      userImg: faker.image.image(),
-      postImg: faker.image.image(),
-      caption: 'This is awesome',
-    }))
-
-    setPosts(posts)
-  }, [])
+  useEffect(
+    () =>
+      onSnapshot(
+        query(collection(db, 'posts'), orderBy('timestamp', 'desc')),
+        (snapshot) => {
+          setPosts(snapshot.docs)
+        }
+      ),
+    [db]
+  )
 
   return (
     <div>
@@ -23,10 +23,10 @@ export default function Posts() {
         <Post
           key={post.id}
           id={post.id}
-          username={post.username}
-          userImg={post.userImg}
-          postImg={post.postImg}
-          caption={post.caption}
+          username={post.data().username}
+          userImg={post.data().profileImg}
+          image={post.data().image}
+          caption={post.data().caption}
         />
       ))}
     </div>
